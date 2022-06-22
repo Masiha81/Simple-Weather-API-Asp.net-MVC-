@@ -1,0 +1,55 @@
+﻿@model WebApiDemo.Models.Root
+@{
+    Layout = null;
+}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/Home/index/" method="get">
+
+            <input type="text" id="search" placeholder=":جستجو شهر " name="text">
+
+
+
+        </form>
+        @if (ViewBag.status == null)
+        {
+
+
+        <div class="weather">
+            <span class="Title">@Model.location.country</span><br><span class="Title">@Model.location.name</span><br>
+            <img src="@Model.current.condition.icon" alt="">
+            <br>
+
+            <span class="Degree">@Model.current.temp_c°</span><br>
+            <span class="wind"> @Model.current.wind_kph <i class="fa fa-wind"></i></span><br>
+            <input type="hidden" value="@Model.current.is_day" id="day">
+            @*<script>
+                var day = document.getElementById('day').value;
+                if (day == "0") {
+                    document.body.style.backgroundColor = "#1A1A1C";
+                    document.getElementsByClassName('weather')[0].style.backgroundColor = "#55D6F4";
+                    document.getElementsByClassName('weather')[0].style.color = "black";
+
+                };
+            </script>*@
+
+
+
+        </div>
+        }
+    </div>
+</body>
+
+</html>
